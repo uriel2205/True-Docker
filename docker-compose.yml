@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  web_server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: webserver
+    restart: always
+    ports:
+      - 8090:80
+
+
+  kinstondb: 
+    image: postgres:14.5-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 2180129
+      POSTGRES_USER: uriel
+      POSTGRES_DB: kinstonm
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+
+
+volumes:
+  pgdata:
