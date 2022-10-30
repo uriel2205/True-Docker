@@ -5,6 +5,7 @@ pipeline {
       agent any
       steps {
         sh 'docker-compose up -d --build'
+        
       }
     }
     }
