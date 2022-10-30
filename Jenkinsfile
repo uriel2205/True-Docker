@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  tools {
-    dockerTool 'Docker'
-  }
   stages {
     stage('docker-compose build') {
       agent any
