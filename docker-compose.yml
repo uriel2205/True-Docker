@@ -1,5 +1,6 @@
 version: "3.7"
-
+networks:
+    webapp:
 services:
   web_server:
     build:
@@ -9,6 +10,8 @@ services:
     restart: always
     ports:
       - 8090:80
+    networks:
+      - webapp
 
 
   kinstondb: 
@@ -20,6 +23,8 @@ services:
       POSTGRES_DB: kinstonm
     ports:
       - "5432:5432"
+    networks:
+      - webapp
     volumes:
       - pgdata:/var/lib/postgresql/data
 
